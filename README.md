@@ -32,7 +32,8 @@ Example:
 
 - To use this helper, you must enable Playwright helper.
 - After install the helper, you can use it by calling `I.getDataLayerObject()`
-- If there is auto complete for I actor, try running `npx codeceptjs def`
+- To check if a certain event name exists in data layer `I.checkIfEventExistsInDataLayer('gtm.dom')`
+- If there is no auto complete for `I` actor, try running `npx codeceptjs def`
 
 ```
 Feature('DataLayer Check');
