@@ -1,4 +1,5 @@
 const Helper = require('@codeceptjs/helper');
+const expect = require('expect');
 
 class DataLayerHelper extends Helper {
 
@@ -24,8 +25,7 @@ class DataLayerHelper extends Helper {
 
     if (eventName) {
       const expected = dl.filter(item => item.event === eventName)
-      if (expected.length < 0) return false
-      return true
+      expect(expected.length).toEqual(1)
     }
   }
 }
