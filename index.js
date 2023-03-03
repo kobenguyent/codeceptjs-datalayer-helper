@@ -25,7 +25,7 @@ class DataLayerHelper extends Helper {
 
     if (eventName) {
       const expected = dl.filter(item => item.event === eventName)
-      expect(expected.length).to.eql(1)
+      expect(expected.length, `${eventName} is not existing in Datalayer JSON`).to.eql(1)
     }
   }
 }
