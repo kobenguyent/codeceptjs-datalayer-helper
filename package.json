@@ -7,7 +7,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepare": "husky install",
-    "tsc": "tsc index.ts",
+    "tsc": "npx tsc index.ts",
     "code:format": "prettier --write ."
   },
   "keywords": [
