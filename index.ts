@@ -16,18 +16,14 @@ class DataLayerHelper extends Helper {
     return  dataLayerObject
   }
 
-  /**
-   * Check if a specific event exists in datalayer object
-   * @param  {String}  eventName event name to check
-   */
-  async checkIfEventExistsInDataLayer(eventName) {
+  async checkIfEventExistsInDataLayer(eventName:string) {
     const dl = await this.getDataLayerObject()
 
     if (eventName) {
-      const expected = dl.filter(item => item.event === eventName)
+      const expected = dl.filter((item: { event: string; }) => item.event === eventName)
       expect(expected.length, `${eventName} is not existing in Datalayer JSON`).to.eql(1)
     }
   }
 }
 
-module.exports = DataLayerHelper;
+exports = DataLayerHelper;
