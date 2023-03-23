@@ -50,6 +50,6 @@
   "homepage": "https://github.com/kobenguyent/codeceptjs-datalayer-helper#readme",
   "author": "Thanh Nguyen <kobenguyent@gmail.com>",
   "lint-staged": {
-    "**/*": "rome format src --write"
+    "src": "rome format src --write"
   }
 }
