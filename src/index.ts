@@ -1,7 +1,7 @@
 const { Helper } = require("codeceptjs");
 const { expect } = require("chai");
 
-export class DataLayerHelper extends Helper {
+class DataLayerHelper extends Helper {
 	/**
 	 * Get datalayer object
 	 */
@@ -28,3 +28,5 @@ export class DataLayerHelper extends Helper {
 		}
 	}
 }
+
+export = DataLayerHelper
