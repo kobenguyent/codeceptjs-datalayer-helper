@@ -38,36 +38,28 @@ Example:
 ```
 Feature('DataLayer Check');
 
-Scenario.only('Get DataLayer object',  async ({ I }) => {
-    I.amOnPage('https://js.devexpress.com/Demos/WidgetsGallery/Demo/Slider/Overview/jQuery/Light/')
-    const dl = await I.getDataLayerObject()
-    console.log(dl)
+Before(({ I }) => {
+  I.amOnPage('https://js.devexpress.com/Demos/WidgetsGallery/Demo/Slider/Overview/jQuery/Light/')
+})
+
+Scenario('Get DataLayer object',  async ({ I }) => {
+  const dl = await I.getDataLayerObject()
+  I.expectGreaterThan(dl.length, 0)
+});
+
+Scenario('DataLayer object contains a specific key',  async ({ I }) => {
+  await I.checkIfEventExistsInDataLayer('gtm.dom')
 });
 ```
 
 Output
 
 ```
-DataLayer --
-    [1]  Starting recording promises
-    Timeouts: 
- › [Session] Starting singleton browser session
-  Get dataLayer object
-    I am on page "https://js.devexpress.com/Demos/WidgetsGallery/Demo/Slider/Overview/jQuery/Light/"
-    I get data layer object
-[
-  {
-    'gtm.start': 1677775441720,
-    event: 'gtm.js',
-    'gtm.uniqueEventId': 1
-  },
-  { event: 'gtm.dom', 'gtm.uniqueEventId': 8 },
-  { event: 'gtm.load', 'gtm.uniqueEventId': 9 }
-]
-  ✔ OK in 2375ms
+Running tests in 2 workers...
 
+[01]   ✔ Get DataLayer object in 12ms
+[02]   ✔ DataLayer object contains a specific key in 9ms
 
-  OK  | 1 passed   // 3s
-
+  OK  | 2 passed   // 6s
 
 ```
