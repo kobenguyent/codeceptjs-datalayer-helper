@@ -18,7 +18,8 @@
   "license": "ISC",
   "dependencies": {
     "@codeceptjs/helper": "^2.0.1",
-    "chai": "^4.3.7"
+    "chai": "^4.3.7",
+    "codeceptjs": "^3.4.1"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.54.0",

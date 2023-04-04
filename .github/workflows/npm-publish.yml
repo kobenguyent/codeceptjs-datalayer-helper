@@ -13,7 +13,7 @@ jobs:
   lint-check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: actions/setup-node@v2
         with:
           node-version: 16
@@ -24,14 +24,25 @@ jobs:
   publish-npm:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: actions/setup-node@v2
         with:
           node-version: 18
           registry-url: https://registry.npmjs.org/
-      - run: npm i
-      - run: npm run tsc
-      - run: npx semantic-release
+      - name: Build
+        run: |
+          npm i
+          npm run tsc
+      - name: Run tests
+        working-directory: ./test
+        run: |
+          npm i
+          npm run test
+      - name: Publish
+        working-directory: .
+        run: |
+          npm i
+          npx semantic-release
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
           GH_TOKEN: ${{secrets.GH_TOKEN}}

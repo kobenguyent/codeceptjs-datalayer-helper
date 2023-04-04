@@ -9,10 +9,10 @@ class DataLayerHelper extends Helper {
 		const playwright = this["helpers"]["Playwright"];
 		if (!playwright) throw Error("DataLayer Helper only supports Playwright at the moment.");
 		const { page } = playwright;
-		const dataLayerObject = await page.evaluate("dataLayer");
+		const dataLayer = page.evaluate('dataLayer');
 
-		if (dataLayerObject.length < 0) return "No dataLayer is implemented";
-		return dataLayerObject;
+		if (dataLayer.length < 0) return "No dataLayer is implemented";
+		return dataLayer;
 	}
 
 	/**
